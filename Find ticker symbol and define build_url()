@@ -1,0 +1,105 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled2.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyO3r4Xiu5mG3u0oYxKjwxkO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Lexie1227/assignment/blob/main/Find%20ticker%20symbol%20and%20define%20build_url()\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4FQohFlSJFdg"
+      },
+      "source": [
+        "assignment \n",
+        "1,choose an company(facebook)\n",
+        "2.get information from yahoo finance\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "irek1QOOHj5u"
+      },
+      "source": [
+        "# Get install yfinance\n",
+        "!pip install yfinance\n",
+        "\n",
+        "import yfinance as yf\n",
+        "#Find the ticker symbol\n",
+        "fb= yf.Ticker(\"FB\")\n",
+        "#get stock infromation\n",
+        "print(fb.info)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "p_0Y_RrFLuFV",
+        "outputId": "113e9b84-f882-4451-fa21-aee368fd6c4a"
+      },
+      "source": [
+        "#use ticker to get page\n",
+        "company_ticker = input(\"What is your Company's Stock Market Ticker Symbol? \")\n",
+        "url = \"https://au.finance.yahoo.com/quote/{}/profile?p={}\".format(company_ticker,company_ticker)\n",
+        "print(url)"
+      ],
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "What is your Company's Stock Market Ticker Symbol? FB\n",
+            "https://au.finance.yahoo.com/quote/FB/profile?p=FB\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wcvT5mw0L24g"
+      },
+      "source": [
+        "def build_url():\n",
+        "  # User input ticker symbol\n",
+        "  ticker_symbol = input(\"Please input ticker symbol \")\n",
+        "  \n",
+        "  # print(ticker_symbol)\n",
+        "  example_url = 'https://au.finance.yahoo.com/quote/{}/profile?p={}'\n",
+        "  result = example_url.format(ticker_symbol, ticker_symbol)\n",
+        "  return result"
+      ],
+      "execution_count": 9,
+      "outputs": []
+    }
+  ]
+}
